@@ -1,17 +1,21 @@
 #home{
-   position: relative;
+   position: absolute;
    top: 50px;
+   width: 100%;
+   height: calc(100% - 50px);
+   box-sizing: border-box;
 }
 
 .home-img-wrap{
    margin: 0;
    padding: 0;
    font-size: 0;
+   height: 100%;
 }
 
 .home-img{
    position: relative;
    width: 100%;
-   height: calc(100vh - 50px);
+   height: 100%;
    object-fit: cover;
 }
