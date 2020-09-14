@@ -49,11 +49,44 @@
    align-items: center;
    cursor: pointer;
    user-select: none;
+   font-size: 20px;
 }
 
 .sign-in:hover{
    color: dodgerblue;
 }
+
+.container {
+   position: absolute;
+   right: 0;
+   width: 50px;
+   height: 50px;
+   display: none;
+   cursor: pointer;
+   box-sizing: border-box;
+   padding-top: 4px;
+ }
+ 
+ .bar1, .bar2, .bar3 {
+   width: 35px;
+   height: 5px;
+   background-color: whiteSmoke;
+   margin: 6px auto;
+   transition: 0.4s;
+ }
+ 
+ .change .bar1 {
+   -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+   transform: rotate(-45deg) translate(-9px, 6px);
+ }
+ 
+ .change .bar2 {opacity: 0;}
+ 
+ .change .bar3 {
+   -webkit-transform: rotate(45deg) translate(-8px, -8px);
+   transform: rotate(45deg) translate(-8px, -8px);
+ }
+
 
 @media only screen and (max-width: 1000px) {
    .nav-list div{
@@ -66,11 +99,15 @@
 }
 
 @media only screen and (max-width: 600px) {
-   .nav-list div{
+   .nav-list{
       display: none;
    }
 
    .sign-in{
       display: none;
+   }
+
+   .container{
+      display: block;
    }
 }

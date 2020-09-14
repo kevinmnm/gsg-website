@@ -1,7 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './Nav.css';
 
 class Nav extends React.Component {
+   state = {
+      nav_expand: false
+   }
+
+   nav_slide = ()=>{
+      this.setState( prevState => {
+         return {
+            nav_expand: !prevState.nav_expand
+         }
+      });
+   }
+
    render() {
       return (
          <div id='nav'>
@@ -15,6 +27,11 @@ class Nav extends React.Component {
                <div>SOFTWARE</div>
             </div>
             <div className='sign-in'>Sign In</div>
+            <div className={this.state.nav_expand ? 'container change' : 'container'} onClick={this.nav_slide}>
+               <div className="bar1"></div>
+               <div className="bar2"></div>
+               <div className="bar3"></div>
+            </div>
          </div>
       );
    }
