@@ -1,0 +1,17 @@
+#home{
+   position: relative;
+   top: 50px;
+}
+
+.home-img-wrap{
+   margin: 0;
+   padding: 0;
+   font-size: 0;
+}
+
+.home-img{
+   position: relative;
+   width: 100%;
+   height: calc(100vh - 50px);
+   object-fit: cover;
+}
