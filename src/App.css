@@ -10,3 +10,125 @@
    font-family: TTSquares, Arial, sans-serif;
    box-sizing: border-box;
 }
+
+#nav{
+   position: fixed;
+   width: 100%;
+   height: 50px;
+   background: #202020;
+   box-sizing: border-box;
+}
+
+.logo{
+   position: absolute;
+   left: 0;
+   width: 50px;
+   height: 50px;
+   cursor: pointer;
+}
+
+.test{
+   position: fixed;
+   height: 100%;
+   width: 100%;
+   z-index: 1000;
+   background: black;
+}
+
+.nav-list{
+   position: relative;
+   left: 50px;
+   height: 50px;
+   width: calc(100% - 200px);
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: space-around;
+}
+
+.nav-list div{
+   font-weight: bold;
+   cursor: pointer;
+   color: grey;
+   font-size: 20px;
+}
+
+.nav-list div:hover{
+   color: lightGrey;
+}
+
+.sign-in{
+   position: absolute;
+   right: 0;
+   top: 0;
+   height: 50px;
+   width: 150px;
+   justify-content: center;
+   font-weight: bold;
+   color: whiteSmoke;
+   display: flex;
+   align-items: center;
+   cursor: pointer;
+   user-select: none;
+   font-size: 20px;
+}
+
+.sign-in:hover{
+   color: dodgerblue;
+}
+
+.container {
+   position: absolute;
+   right: 0;
+   width: 50px;
+   height: 50px;
+   display: none;
+   cursor: pointer;
+   box-sizing: border-box;
+   padding-top: 4px;
+ }
+ 
+ .bar1, .bar2, .bar3 {
+   width: 35px;
+   height: 5px;
+   background-color: whiteSmoke;
+   margin: 6px auto;
+   transition: 0.4s;
+ }
+ 
+ .change .bar1 {
+   -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+   transform: rotate(-45deg) translate(-9px, 6px);
+ }
+ 
+ .change .bar2 {opacity: 0;}
+ 
+ .change .bar3 {
+   -webkit-transform: rotate(45deg) translate(-8px, -8px);
+   transform: rotate(45deg) translate(-8px, -8px);
+ }
+
+
+@media only screen and (max-width: 1000px) {
+   .nav-list div{
+      font-size: 15px;
+   }
+
+   .sign-in{
+      font-size: 18px;
+   }
+}
+
+@media only screen and (max-width: 600px) {
+   .nav-list{
+      display: none;
+   }
+
+   .sign-in{
+      display: none;
+   }
+
+   .container{
+      display: block;
+   }
+}
