@@ -37,7 +37,7 @@ class App extends React.Component {
                </div>
             </div>
 
-            <Home />
+            <Home expand={this.state.nav_expand} />
          </div>
       );
    }
