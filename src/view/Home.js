@@ -34,6 +34,12 @@ const Home = (props) => {
                <div className='arrow arrow-left' onClick={slider}>&#8249;</div>
                <div className='arrow arrow-right' onClick={slider}>&#8250;</div>
             </div>
+            <div className='home-text-wrap'>
+               <div className='shine'>UNLEASH</div>
+               <div className='shine'>YOUR</div>
+               <div className='shine'>FULL</div>
+               <div className='shine'>POTENTIAL</div>
+            </div>
          </div>
 
             <div className={props.expand && win_width < 600 ? 'nav-full-wrap show' : 'nav-full-wrap no-show'}>
