@@ -6,7 +6,13 @@ const Home = (props) => {
    const second = 'home_large_2.png';
    const third = 'home_large_3.png';
 
+
    let [home_img, set_home_img] = useState(first);
+   let [win_width, set_win_width] = useState(window.innerWidth);
+
+   window.addEventListener('resize',()=>{
+      set_win_width(window.innerWidth);
+   });
 
    const slider = (e) => {
       if (e.target.classList.contains('arrow-left')){
@@ -29,15 +35,16 @@ const Home = (props) => {
                <div className='arrow arrow-right' onClick={slider}>&#8250;</div>
             </div>
          </div>
-         <div className='nav-full-wrap'>
-            <div className='close-nav-full-wrap'>&#10005;</div>
-            <div className='nav-flex-wrap'>
-               <div>SIGN-IN</div>
-               <div>ABOUT</div>
-               <div>HARDWARE</div>
-               <div>SOFTWARE</div>
+
+            <div className={props.expand && win_width < 600 ? 'nav-full-wrap show' : 'nav-full-wrap no-show'}>
+               <div className='nav-flex-wrap'>
+                  <div>SIGN-IN</div>
+                  <div>ABOUT</div>
+                  <div>HARDWARE</div>
+                  <div>SOFTWARE</div>
+               </div>
             </div>
-         </div>
+         
       </div>
    );
 }
