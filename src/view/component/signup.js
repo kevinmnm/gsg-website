@@ -10,7 +10,9 @@ const Signup = () => {
             <input type='password' placeholder='Confirm' />
             <input type='text' placeholder='First name' />
             <input type='text' placeholder='Last name' />
+            <button>SIGN UP</button>
          </form>
+         <br /><br /><br />
       </div>
    );
 }

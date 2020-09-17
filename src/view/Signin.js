@@ -29,12 +29,14 @@ const Signin = (props) => {
             </div>
          </div>
          <br />
-         <div className='signup-title'>
-            <div onClick={signup_show}>Sign up</div>
-         </div>
-            {
-               signup ? <Signup /> : null
-            }
+         {
+            signup ? 
+            <div className='signup-title2'><span>Sign Up</span></div> : 
+            <div className='signup-title' onClick={signup_show}>Sign up</div>
+         }
+         {
+            signup ? <Signup /> : null
+         }
       </div>
    );
 }
