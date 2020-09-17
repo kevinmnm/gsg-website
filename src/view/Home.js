@@ -35,10 +35,10 @@ const Home = (props) => {
                <div className='arrow arrow-right' onClick={slider}>&#8250;</div>
             </div>
             <div className='home-text-wrap'>
-               <div className='shine'>UNLEASH</div>
-               <div className='shine'>YOUR</div>
-               <div className='shine'>FULL</div>
-               <div className='shine'>POTENTIAL</div>
+               <div className='shine t1'>UNLEASH</div>
+               <div className='shine t2'>YOUR</div>
+               <div className='shine t3'>FULL</div>
+               <div className='shine t4'>POTENTIAL</div>
             </div>
          </div>
 

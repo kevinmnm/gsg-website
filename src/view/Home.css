@@ -112,6 +112,10 @@
    font-family: 'Russo One', sans-serif;
 }
 
+.t2{animation-delay: 0.1s;}
+.t3{animation-delay: 0.2s;}
+.t4{animation-delay: 0.3s;}
+
 .shine {
   background: #222 -webkit-gradient(linear, left top, right top, from(#222), to(#222), color-stop(0.5, #fff)) 0 0 no-repeat;
   -webkit-background-size: 150px;
@@ -125,7 +129,7 @@
   animation-duration: 3s;
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
-  text-shadow: 0 0px 0px rgba(255, 255, 255, 0.5);
+  text-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
 }
 
 /* .chrome {
