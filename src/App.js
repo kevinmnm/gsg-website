@@ -1,12 +1,12 @@
 import React, { Suspense, lazy } from 'react';
 import './App.css';
 import Home from './view/Home.js';
-import Hardware from './view/Hardware.js';
-import Software from './view/Software.js';
-import Signin from './view/Signin.js';
 import { BrowserRouter as Router, Route, Switch, NavLink } from 'react-router-dom';
 
 const About = lazy(() => import('./view/About.js'));
+const Hardware = lazy(()=>import('./view/Hardware.js'));
+const Software = lazy(()=>import('./view/Software.js'));
+const Signin = lazy(()=>import('./view/Signin.js'));
 
 class App extends React.Component {
    state = {
