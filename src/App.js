@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import './App.css';
 import Home from './view/Home.js';
-import About from './view/About.js';
 import Hardware from './view/Hardware.js';
 import Software from './view/Software.js';
 import Signin from './view/Signin.js';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, NavLink } from 'react-router-dom';
+
+const About = lazy(() => import('./view/About.js'));
 
 class App extends React.Component {
    state = {
@@ -26,14 +27,23 @@ class App extends React.Component {
             <Router>
                <div id='nav'>
                   <div className='logo-wrap'>
-                     <Link to="/"><img className='logo' src={require('./assets/logo.png')} alt='logo.png' /></Link>
+                     <NavLink to="/"><img className='logo' src={require('./assets/logo.png')} alt='logo.png' /></NavLink>
                   </div>
                   <div className='nav-list'>
-                     <div><Link to="/about">ABOUT</Link></div>
-                     <div><Link to="/hardware">HARDWARE</Link></div>
-                     <div><Link to="/software">SOFTWARE</Link></div>
+                     <div><NavLink to="/about">ABOUT</NavLink></div>
+                     <div><NavLink to="/hardware">HARDWARE</NavLink></div>
+                     <div><NavLink to="/software">SOFTWARE</NavLink></div>
                   </div>
-                  <div className='sign-in'><Link to="/signin">Sign In</Link></div>
+                  <div className='sign-in'>
+                     <NavLink
+                        to="/signin"
+                        activeStyle={{
+                           color: 'dodgerBlue',
+                           textShadow: '0 0 1px black'
+                        }}>
+                        Sign In
+                     </NavLink>
+                  </div>
                   {/* <div className={this.state.nav_expand ? 'container change' : 'container'} onClick={this.nav_slide}> */}
                   <div className={(this.state.nav_expand && window.innerWidth < 600) ? 'container change' : 'container'} onClick={this.nav_slide}>
                      <div className="bar1"></div>
@@ -41,23 +51,31 @@ class App extends React.Component {
                      <div className="bar3"></div>
                   </div>
                </div>
-               <Switch>
-                  <Route path="/" exact>
-                     <Home />
-                  </Route>
-                  <Route path="/about" exact>
-                     <About />
-                  </Route>
-                  <Route path="/hardware" exact>
-                     <Hardware />
-                  </Route>
-                  <Route path="/software" exact>
-                     <Software />
-                  </Route>
-                  <Route path="/signin" exact>
-                     <Signin />
-                  </Route>
-               </Switch>
+               <Suspense fallback={<div>Loading..</div>}>
+                  <Switch>
+
+                     <Route path="/" exact>
+                        <Home />
+                     </Route>
+
+                     <Route path="/about" exact>
+                        <About />
+                     </Route>
+
+                     <Route path="/hardware" exact>
+                        <Hardware />
+                     </Route>
+
+                     <Route path="/software" exact>
+                        <Software />
+                     </Route>
+
+                     <Route path="/signin" exact>
+                        <Signin />
+                     </Route>
+
+                  </Switch>
+               </Suspense>
             </Router>
          </div>
       );

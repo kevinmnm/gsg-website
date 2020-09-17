@@ -39,6 +39,7 @@ const Home = (props) => {
                <div className='shine t2'>YOUR</div>
                <div className='shine t3'>FULL</div>
                <div className='shine t4'>POTENTIAL</div>
+               <div className='github'>GITHUB</div>
             </div>
          </div>
 
