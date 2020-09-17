@@ -1,4 +1,95 @@
 #Signin{
    position: relative;
    top: 50px;
+   text-align: center;
+}
+
+.signin{
+   position: relative;
+   top: 20px;
+}
+
+.signin-img-wrap{
+   position: relative;
+}
+
+.signin-img{
+   position: relative;
+   height: 80px;
+   width: 80px;
+   margin: auto;
+}
+
+.signin-h1{
+   border-bottom: 1px solid white;
+   line-height: 0.1;
+}
+
+.signin-h1 span{
+   background: black;
+   padding: 10px;
+}
+
+.signin-regular{
+   position: relative;
+   display: block;
+}
+
+.signin-regular input{
+   position: relative;
+   font-size: 30px;
+   width: 400px;
+   outline: none;
+   box-sizing: border-box;
+}
+
+.signin-regular button{
+   position: relative;
+   font-size: 30px;
+   width: 400px;
+}
+
+.other-google,
+.other-facebook{
+   position: relative;
+   width: 400px;
+   font-size: 35px;  
+   border: 1px solid white;
+   box-sizing: border-box;
+   margin: auto;
+   cursor: pointer;
+}
+
+.signup-title{
+   position: relative;
+   margin: auto;
+   margin-top: 50px;
+   box-sizing: border-box;
+   border: 1px solid white;
+   font-size: 20px;
+   width: 400px;
+   cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+   .signin-regular input{
+      width: 250px;
+      font-size: 20px;
+      
+   }
+
+   .signin-regular button{
+      width: 250px;
+      font-size: 20px;
+   }
+
+   .other-google,
+   .other-facebook{
+      width: 250px;
+      font-size: 25px;
+   }
+
+   .signup-title{
+      width: 250px;
+   }
 }

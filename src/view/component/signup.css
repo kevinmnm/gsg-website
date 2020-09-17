@@ -1,0 +1,25 @@
+.signup-form{
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   width: 400px;
+   margin: auto;
+}
+
+.signup-form input {
+   font-size: 30px;
+}
+
+
+
+
+
+@media only screen and (max-width: 600px) {
+   .signup-form{
+      width: 250px;
+   }
+
+   .signup-form input{
+      font-size: 20px;
+   }
+}
