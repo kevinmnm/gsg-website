@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Signup from './component/signup.js';
 import './Signin.css';
 import { useDispatch, useSelector } from 'react-redux';
@@ -11,7 +11,11 @@ const Signin = () => {
    const dispatch = useDispatch();
 
    let [signup, set_signup] = useState(false);
+   let [signin_m, set_signin_m] = useState(null);
    let logged_status = useSelector(x => x.auth);
+
+   const user_email = useRef(null);
+   const user_pw = useRef(null);
 
    firebase.auth().onAuthStateChanged(user => {
       if (user) {
@@ -32,6 +36,20 @@ const Signin = () => {
          });
    }
 
+   const signin_attempt = (e) => {
+      e.preventDefault();
+      let email_val = user_email.current.value;
+      let pw_val = user_pw.current.value;
+
+      if (user_email.current.value && user_pw.current.value) {
+         firebase.auth().createUserWithEmailAndPassword(email_val, pw_val)
+            .then(() => alert('success'))
+            .catch(err => {
+               set_signin_m('*'+err.message+'*');
+            });
+      }
+   }
+
 
    {
       if (!logged_status) {
@@ -43,9 +61,10 @@ const Signin = () => {
                   </div>
                   <br />
                   <h1 className='signin-h1'><span>Sign in to GSC</span></h1>
-                  <form className='signin-regular'>
-                     <input type='text' placeholder='Email' /> <br />
-                     <input type='password' placeholder='Password' /> <br />
+                  <div className='signin-message'>{signin_m}</div>
+                  <form className='signin-regular' onSubmit={signin_attempt}>
+                     <input type='text' placeholder='Email' ref={user_email} /> <br />
+                     <input type='password' placeholder='Password' ref={user_pw} /> <br />
                      <button>SIGN IN</button>
                   </form>
                   <div>or</div>

@@ -26,6 +26,10 @@ const Home = (props) => {
       }
    }
 
+   const github_opener = () => {
+      window.open('https://github.com/kevinmnm/gsg-website');
+   }
+
    return (
       <div id='home'>
          <div className='home-img-wrap'>
@@ -39,7 +43,7 @@ const Home = (props) => {
                <div className='shine t2'>YOUR</div>
                <div className='shine t3'>FULL</div>
                <div className='shine t4'>POTENTIAL</div>
-               <div className='github'>GITHUB</div>
+               <div className='github' onClick={github_opener}>GITHUB</div>
             </div>
          </div>
 
