@@ -31,9 +31,12 @@ const Signin = () => {
 
    const google_signin = () => {
       firebase.auth().signInWithPopup(google_provider)
-         .then(result => {
-            console.log(result);
-         });
+         .then(result => console.log(result));
+   }
+
+   const facebook_signin = () => {
+      firebase.auth().signInWithPopup(facebook_provider)
+         .then(result => console.log(result));
    }
 
    const signin_attempt = (e) => {
@@ -42,8 +45,8 @@ const Signin = () => {
       let pw_val = user_pw.current.value;
 
       if (user_email.current.value && user_pw.current.value) {
-         firebase.auth().createUserWithEmailAndPassword(email_val, pw_val)
-            .then(() => alert('success'))
+         firebase.auth().signInWithEmailAndPassword(email_val, pw_val)
+            .then(() => console.log('Logged in'))
             .catch(err => {
                set_signin_m('*'+err.message+'*');
             });
@@ -70,7 +73,7 @@ const Signin = () => {
                   <div>or</div>
                   <div className='signin-other'>
                      <div className='other-google' onClick={google_signin}>GOOGLE</div>
-                     <div className='other-facebook'>FACEBOOK</div>
+                     <div className='other-facebook' onClick={facebook_signin}>FACEBOOK</div>
                   </div>
                </div>
                <br />

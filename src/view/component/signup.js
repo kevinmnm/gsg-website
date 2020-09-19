@@ -9,7 +9,7 @@ const Signup = () => {
    let [pwc, set_pwc] = useState(null);
    let [fn, set_fn] = useState(null);
    let [ln, set_ln] = useState(null);
-   let [errorM, set_errorM] = useState('Required');
+   let [errorM, set_errorM] = useState('*Email verification required*');
    let [errm_style, set_errm_style] = useState(null);
 
    const email_set = (e) => e.target.value ? set_email(e.target.value) : null;
@@ -28,8 +28,12 @@ const Signup = () => {
          if (pw === pwc) {
             firebase.auth().createUserWithEmailAndPassword(email, pw)
                .then(res => {
-                  console.log(res);
-                  alert('Resgistration Successful!');
+                  res.user.updateProfile({
+                     displayName: fn + ' ' + ln
+                  });
+               })
+               .then(()=>{
+                  alert(firebase.auth().currentUser.displayName);
                })
                .catch(err => {
                   set_errorM('*'+err.message+'*');

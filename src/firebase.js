@@ -1,4 +1,5 @@
 const firebaseConfig = {
+   //url: continue url here
    apiKey: "AIzaSyC7W0DtckKvLYnujcO0S0fkvdYC5OY8sgg",
    authDomain: "gaming-setup-guide.firebaseapp.com",
    databaseURL: "https://gaming-setup-guide.firebaseio.com",

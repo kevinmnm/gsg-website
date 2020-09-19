@@ -1,12 +1,14 @@
 import React, { Suspense, lazy } from 'react';
 import './App.css';
 import Home from './view/Home.js';
-import { BrowserRouter as Router, Route, Switch, NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { BrowserRouter as Router, Route, Switch, NavLink, Redirect } from 'react-router-dom';
+import { auth } from 'firebase';
 
 const About = lazy(() => import('./view/About.js'));
-const Hardware = lazy(()=>import('./view/Hardware.js'));
-const Software = lazy(()=>import('./view/Software.js'));
-const Signin = lazy(()=>import('./view/Signin.js'));
+const Hardware = lazy(() => import('./view/Hardware.js'));
+const Software = lazy(() => import('./view/Software.js'));
+const Signin = lazy(() => import('./view/Signin.js'));
 
 class App extends React.Component {
    state = {
@@ -59,15 +61,30 @@ class App extends React.Component {
                      </Route>
 
                      <Route path="/about" exact>
-                        <About />
+                        {
+                           (this.props.auth_state) ?
+                              <About />
+                              :
+                              <Redirect to="/signin" />
+                        }
                      </Route>
 
                      <Route path="/hardware" exact>
-                        <Hardware />
+                        {
+                           (this.props.auth_state) ?
+                              <Hardware />
+                              :
+                              <Redirect to="/signin" />
+                        }
                      </Route>
 
                      <Route path="/software" exact>
-                        <Software />
+                        {
+                           (this.props.auth_state) ?
+                              <Software />
+                              :
+                              <Redirect to="/signin" />
+                        }
                      </Route>
 
                      <Route path="/signin" exact>
@@ -82,5 +99,10 @@ class App extends React.Component {
    }
 }
 
+const mapStateToProps = allState => {
+   return {
+      auth_state: allState.auth
+   }
+}
 
-export default App;
+export default connect(mapStateToProps)(App);
