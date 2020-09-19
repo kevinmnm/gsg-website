@@ -5,6 +5,8 @@ let auth_state = {
 const auth_reducer = (state = auth_state, action) => {
    if (action.type === 'LOGGED_IN'){
       return state = true
+   } else if (action.type === 'LOGGED_OUT'){
+      return state = false
    } else {
       return state = false
    }
