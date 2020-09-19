@@ -20,6 +20,7 @@ class Hardware extends React.Component {
                   })
                }
             </div>
+            <br /><br /><br />
          </div>
       );
    }
