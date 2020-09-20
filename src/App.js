@@ -113,4 +113,8 @@ const mapStateToProps = allState => {
    }
 }
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = allState => {
+
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
