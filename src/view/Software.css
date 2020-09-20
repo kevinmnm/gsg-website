@@ -1,4 +1,47 @@
 #Software{
    position: relative;
-   top: 50px;
+   top: 80px;
+   text-underline-position: under;
+   box-sizing: border-box;
+   text-align: center;
+   word-wrap: break-word;
+}
+.software-content-wrap{
+   position: relative;
+   width: 50%;
+   margin: auto;
+}
+
+.software-content{
+   margin: auto;
+   margin-top: 50px;
+}
+
+.software-content-wrap img{
+   width: 100%;
+}
+
+.software-content-title{
+   font-size: 50px;
+   background: brown;
+   border-radius: 3px;
+}
+
+.software-content-desc{
+   text-indent: 30px;
+   text-align: left;
+   font-size: 20px;
+   width: 100%;
+}
+
+@media only screen and (max-width: 1000px) {
+   .software-content-title{
+      font-size: 30px;
+   }
+}
+
+@media only screen and (max-width: 600px) {
+   .software-content-wrap{
+      width: 90%;
+   }
 }
