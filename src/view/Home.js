@@ -28,7 +28,7 @@ const Home = (props) => {
       }
 
       home_img_ref.current.classList.remove('animate__fadeIn');
-      void home_img_ref.current.offsetWidth;
+      void (home_img_ref.current.offsetWidth);
       home_img_ref.current.classList.add('animate__fadeIn');
    }
 
