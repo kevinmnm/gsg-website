@@ -80,7 +80,9 @@ const Dashboard = () => {
             <div style={{backgroundColor: 'green'}}>{user_name}</div>
          </div>
          <br />
-         <button onClick={sign_out}>Log Out</button>
+         <button className='logout-button' onClick={sign_out}>Log Out</button>
+         <br />
+         <br />
       </div>
    );
 }

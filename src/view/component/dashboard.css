@@ -3,6 +3,7 @@
    top: 80px;
    text-align: center;
    text-underline-position: under;
+   word-wrap: break-word;
 }
 
 .dashboard-status-wrap{
@@ -30,4 +31,18 @@
    position: relative;
    width: 200px;
    height: 200px;
+}
+
+.logout-button{
+   font-size: 20px;
+   background: #404040;
+   color: white;
+   border: none;
+   cursor: pointer;
+   padding: 10px;
+   margin-bottom: 20px;
+   border-radius: 3px;
+}
+.logout-button:hover{
+   box-shadow: 0 0 10px white;
 }

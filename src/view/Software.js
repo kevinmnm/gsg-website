@@ -6,7 +6,7 @@ class Software extends React.Component {
    render() {
       return (
          <div id='Software'>
-            <h1><u>Software</u></h1>
+            <h1><u>Softwares</u></h1>
             <div className='software-content-wrap'>
                {
                   software_list.map(product => {
@@ -20,6 +20,7 @@ class Software extends React.Component {
                   })
                }
             </div>
+            <br /><br />
          </div>
       );
    }
