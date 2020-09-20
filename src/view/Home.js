@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import './Home.css';
 
 const Home = (props) => {
    const first = 'home_large_1.png';
    const second = 'home_large_2.png';
    const third = 'home_large_3.png';
+
+   const home_img_ref = useRef(null);
 
 
    let [home_img, set_home_img] = useState(first);
@@ -24,6 +26,10 @@ const Home = (props) => {
          : home_img === second ? set_home_img(third)
          : set_home_img(first);
       }
+
+      home_img_ref.current.classList.remove('animate__fadeIn');
+      void home_img_ref.current.offsetWidth;
+      home_img_ref.current.classList.add('animate__fadeIn');
    }
 
    const github_opener = () => {
@@ -33,7 +39,7 @@ const Home = (props) => {
    return (
       <div id='home'>
          <div className='home-img-wrap'>
-            <img className='home-img' src={require(`../assets/${home_img}`)} draggable='false' />
+            <img className='home-img animate__animated animate__fadeIn' src={require(`../assets/${home_img}`)} draggable='false' ref={home_img_ref} />
             <div className='home-arrow-wrap'>
                <div className='arrow arrow-left' onClick={slider}>&#8249;</div>
                <div className='arrow arrow-right' onClick={slider}>&#8250;</div>

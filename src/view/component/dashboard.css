@@ -31,7 +31,11 @@
    position: relative;
    width: 200px;
    height: 200px;
+   cursor: pointer;
+   box-shadow: 0 0 5px white;
+   border-radius: 2px;
 }
+
 
 .logout-button{
    font-size: 20px;
@@ -45,4 +49,39 @@
 }
 .logout-button:hover{
    box-shadow: 0 0 10px white;
+}
+
+.change-img-setting{
+   position: fixed;
+   z-index: 1;
+   top: 50px;
+   border: 2px solid yellow;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background: rgb(0,0,0,0.9);
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+
+.img-setting-title{
+   font-size: 30px;
+}
+
+.change-img-setting input{
+   font-size: 20px;
+   width: 60%;
+}
+
+.change-img-setting button{
+   width: 100px;
+   font-weight: bold;
+   margin-bottom: 10px;
+   font-size: 20px;
+}
+
+.change-img-setting div,
+.change-img-setting input{
+   margin: 15px;
 }

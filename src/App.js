@@ -3,12 +3,13 @@ import './App.css';
 import Home from './view/Home.js';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch, NavLink, Redirect } from 'react-router-dom';
-import { auth } from 'firebase';
+// import { auth } from 'firebase';
 
 const About = lazy(() => import('./view/About.js'));
 const Hardware = lazy(() => import('./view/Hardware.js'));
 const Software = lazy(() => import('./view/Software.js'));
 const Signin = lazy(() => import('./view/Signin.js'));
+const Missing = lazy(() => import('./view/Missing.js'));
 
 class App extends React.Component {
    state = {
@@ -43,7 +44,12 @@ class App extends React.Component {
                            color: 'dodgerBlue',
                            textShadow: '0 0 1px black'
                         }}>
-                        Sign In
+                        {
+                           (this.props.auth_state) ?
+                              'Dashboard'
+                           :
+                              'Sign In'
+                        }
                      </NavLink>
                   </div>
                   {/* <div className={this.state.nav_expand ? 'container change' : 'container'} onClick={this.nav_slide}> */}
@@ -90,6 +96,8 @@ class App extends React.Component {
                      <Route path="/signin" exact>
                         <Signin />
                      </Route>
+
+                     <Route render={() => <Missing />} />
 
                   </Switch>
                </Suspense>

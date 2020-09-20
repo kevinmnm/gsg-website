@@ -1,0 +1,18 @@
+#Missing{
+   position: absolute;
+   top: 50px;
+   width: 100%;
+   height: calc(100% - 50px);
+   text-align: center;
+   background: white;
+   object-fit: cover;
+}
+
+.missing-content{
+   position: relative;
+}
+
+.missing-img{
+   position: relative;
+   width: 100%;
+}
