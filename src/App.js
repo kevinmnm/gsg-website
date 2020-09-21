@@ -51,16 +51,16 @@ class App extends React.Component {
             <Router>
                <div id='nav'>
                   <div className='logo-wrap'>
-                     <NavLink to="/"><img className='logo' src={require('./assets/logo.png')} alt='logo.png' /></NavLink>
+                     <NavLink to={`${process.env.PUBLIC_URL}/`}><img className='logo' src={require('./assets/logo.png')} alt='logo.png' /></NavLink>
                   </div>
                   <div className='nav-list'>
-                     <div><NavLink to="/about">ABOUT</NavLink></div>
-                     <div><NavLink to="/hardware">HARDWARE</NavLink></div>
-                     <div><NavLink to="/software">SOFTWARE</NavLink></div>
+                     <div><NavLink to={`${process.env.PUBLIC_URL}/about`}>ABOUT</NavLink></div>
+                     <div><NavLink to={`${process.env.PUBLIC_URL}/hardware`}>HARDWARE</NavLink></div>
+                     <div><NavLink to={`${process.env.PUBLIC_URL}/software`}>SOFTWARE</NavLink></div>
                   </div>
                   <div className='sign-in'>
                      <NavLink
-                        to="/signin"
+                        to={`${process.env.PUBLIC_URL}/signin`}
                         activeStyle={{
                            color: 'dodgerBlue',
                            textShadow: '0 0 1px black'
@@ -91,38 +91,38 @@ class App extends React.Component {
                   }
                   <Switch>
 
-                     <Route path="/" exact>
+                     <Route path={`${process.env.PUBLIC_URL}/`} exact>
                         <Home />
                      </Route>
 
-                     <Route path="/about" exact>
+                     <Route path={`${process.env.PUBLIC_URL}/about`} exact>
                         {
                            (this.props.auth_state) ?
                               <About />
                               :
-                              <Redirect to="/signin" />
+                              <Redirect to={`${process.env.PUBLIC_URL}/signin`} />
                         }
                      </Route>
 
-                     <Route path="/hardware" exact>
+                     <Route path={`${process.env.PUBLIC_URL}/hardware`} exact>
                         {
                            (this.props.auth_state) ?
                               <Hardware />
                               :
-                              <Redirect to="/signin" />
+                              <Redirect to={`${process.env.PUBLIC_URL}/signin`} />
                         }
                      </Route>
 
-                     <Route path="/software" exact>
+                     <Route path={`${process.env.PUBLIC_URL}/software`} exact>
                         {
                            (this.props.auth_state) ?
                               <Software />
                               :
-                              <Redirect to="/signin" />
+                              <Redirect to={`${process.env.PUBLIC_URL}/signin`} />
                         }
                      </Route>
 
-                     <Route path="/signin" exact>
+                     <Route path={`${process.env.PUBLIC_URL}/signin`} exact>
                         <Signin />
                      </Route>
 
