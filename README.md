@@ -1,4 +1,4 @@
-# **Initravel Website**
+# **GSG Website**
 > Gaming Setup Guide Website Project
 
 ## Table of Contents
