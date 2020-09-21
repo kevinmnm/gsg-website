@@ -17,6 +17,25 @@ class App extends React.Component {
       nav_expand: false
    }
 
+   componentDidMount(){
+      window.addEventListener('resize', this.window_handler);
+   }
+
+   componentWillUnmount(){
+      window.removeEventListener('resize', this.window_handler);
+   }
+
+   window_handler = () => {
+      if (window.innerWidth >= 600){
+         this.setState(prevState => {
+            return {
+               ...prevState,
+               nav_expand: false
+            }
+         });
+      }
+   }
+
    nav_slide = () => {
       this.setState(prevState => {
          return {

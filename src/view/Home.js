@@ -1,5 +1,4 @@
-import React, { useState, useRef } from 'react';
-//import { useDispatch } from 'react-redux';
+import React, { useState, useRef, useEffect } from 'react';
 import './Home.css';
 
 const Home = (props) => {
@@ -9,21 +8,11 @@ const Home = (props) => {
 
    const home_img_ref = useRef(null);
 
-
    let [home_img, set_home_img] = useState(first);
    let [win_width, set_win_width] = useState(window.innerWidth);
 
    window.addEventListener('resize',()=>{
       set_win_width(window.innerWidth);
-      // if (win_width < 600){
-      //    useDispatch({
-      //       type: 'SMALL_WINDOW'
-      //    });
-      // } else {
-      //    useDispatch({
-      //       type: 'BIG_WINDOW'
-      //    });
-      // }
    });
 
    const slider = (e) => {
