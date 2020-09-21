@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import Signup from './component/signup.js';
 import './Signin.css';
 import { useDispatch, useSelector } from 'react-redux';
@@ -48,7 +48,7 @@ const Signin = () => {
          firebase.auth().signInWithEmailAndPassword(email_val, pw_val)
             .then(() => console.log('Logged in'))
             .catch(err => {
-               set_signin_m('*'+err.message+'*');
+               set_signin_m('*' + err.message + '*');
             });
       }
    }

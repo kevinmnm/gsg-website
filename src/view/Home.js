@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import './Home.css';
 
 const Home = (props) => {
@@ -38,7 +38,7 @@ const Home = (props) => {
    return (
       <div id='home'>
          <div className='home-img-wrap'>
-            <img className='home-img animate__animated animate__fadeIn' src={require(`../assets/${home_img}`)} draggable='false' ref={home_img_ref} />
+            <img className='home-img animate__animated animate__fadeIn' src={require(`../assets/${home_img}`)} draggable='false' ref={home_img_ref} alt='Home' />
             <div className='home-arrow-wrap'>
                <div className='arrow arrow-left' onClick={slider}>&#8249;</div>
                <div className='arrow arrow-right' onClick={slider}>&#8250;</div>

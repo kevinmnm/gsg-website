@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import './signup.css';
 let firebase = require('firebase/app');
 

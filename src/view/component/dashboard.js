@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import './dashboard.css';
 import { useDispatch } from 'react-redux';
 let firebase = require('firebase/app');
@@ -22,8 +22,8 @@ const Dashboard = () => {
       firebase.auth().signOut()
          .then(() => {
             alert('Singed Out!');
-         }).
-         then(() => {
+         })
+         .then(() => {
             dispatch({
                type: 'LOGGED_OUT'
             });
@@ -61,9 +61,9 @@ const Dashboard = () => {
          photoURL: input_url
       })
          .then(() => {
-            alert('Successfully updated image URL.');
+            alert('Successfully updated profile URL.');
          })
-         .then(()=> set_img_setting('none'))
+         .then(() => set_img_setting('none'))
          .catch(err => alert(err));
    }
 
@@ -72,7 +72,7 @@ const Dashboard = () => {
          <div className='change-img-setting' style={{ display: img_setting }}>
             <div className='img-setting-title'>Change your profile image URL (200 x 200)</div>
             {/* <div className='current-url'>{pimg_url}</div> */}
-            <input type='text' placeholder='Profile Image URL' onChange={input_url_handler} ref={url_input_field} />
+            <input type='text' placeholder='Profile URL' onChange={input_url_handler} ref={url_input_field} />
             <button onClick={confirm_img_url}>Confirm</button>
             <button onClick={close_change_img}>Cancel</button>
          </div>

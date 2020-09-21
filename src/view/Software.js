@@ -13,7 +13,7 @@ class Software extends React.Component {
                      return (
                         <div className='software-content' key={product.title}>
                            <div className='software-content-title'>{product.title}</div>
-                           <img src={require('../assets/' + product.img)} alt='Software Image' />
+                           <img src={require('../assets/' + product.img)} alt='Software' />
                            <div className='software-content-desc'>{product.desc}</div>
                         </div>
                      )

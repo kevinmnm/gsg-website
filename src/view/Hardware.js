@@ -13,7 +13,7 @@ class Hardware extends React.Component {
                      return (
                         <div className='hardware-content' key={product.type}>
                            <div className='content-title'>{product.type}</div>
-                           <img src={require('../assets/'+product.img)} alt='Product Image' />
+                           <img src={require('../assets/'+product.img)} alt='Product' />
                            <div className='content-spec'>{product.spec}</div>
                         </div>
                      )
