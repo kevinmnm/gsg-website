@@ -11,7 +11,7 @@ class Software extends React.Component {
                {
                   software_list.map(product => {
                      return (
-                        <div className='software-content'>
+                        <div className='software-content' key={product.title}>
                            <div className='software-content-title'>{product.title}</div>
                            <img src={require('../assets/' + product.img)} alt='Software Image' />
                            <div className='software-content-desc'>{product.desc}</div>
