@@ -1,20 +1,13 @@
-const { bindActionCreators } = require("redux")
 
 let nav_status = {
    show_nav: false
 }
 
 const small_nav = (state = nav_status, action) => {
-   if (action.type === 'OPEN_NAV'){
-      return {
-         ...state,
-         show_nav: true
-      }
+   if (action.type === 'OPEN_NAV') {
+      return state = true
    } else {
-      return {
-         ...state,
-         show_nav: false
-      }
+      return state = false
    }
 }
 

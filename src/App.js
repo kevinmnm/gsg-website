@@ -10,6 +10,7 @@ const Hardware = lazy(() => import('./view/Hardware.js'));
 const Software = lazy(() => import('./view/Software.js'));
 const Signin = lazy(() => import('./view/Signin.js'));
 const Missing = lazy(() => import('./view/Missing.js'));
+const Nav_div = lazy(() => import('./view/component/nav-div.js'));
 
 class App extends React.Component {
    state = {
@@ -19,6 +20,7 @@ class App extends React.Component {
    nav_slide = () => {
       this.setState(prevState => {
          return {
+            ...prevState,
             nav_expand: !prevState.nav_expand
          }
       });
@@ -47,19 +49,27 @@ class App extends React.Component {
                         {
                            (this.props.auth_state) ?
                               'Dashboard'
-                           :
+                              :
                               'Sign In'
                         }
                      </NavLink>
                   </div>
-                  {/* <div className={this.state.nav_expand ? 'container change' : 'container'} onClick={this.nav_slide}> */}
+
                   <div className={(this.state.nav_expand && window.innerWidth < 600) ? 'container change' : 'container'} onClick={this.nav_slide}>
                      <div className="bar1"></div>
                      <div className="bar2"></div>
                      <div className="bar3"></div>
                   </div>
+
                </div>
+
                <Suspense fallback={<div>Loading..</div>}>
+                  {
+                     (this.state.nav_expand) ?
+                        <Nav_div expander={this.nav_slide} />
+                        :
+                        null
+                  }
                   <Switch>
 
                      <Route path="/" exact>
@@ -109,12 +119,16 @@ class App extends React.Component {
 
 const mapStateToProps = allState => {
    return {
-      auth_state: allState.auth
+      auth_state: allState.auth,
+      nav_state: allState.nav
    }
 }
 
-const mapDispatchToProps = allState => {
-
+const mapDispatchToProps = dispatch => {
+   return {
+      show_small_nav: () => dispatch({ type: 'OPEN_NAV' }),
+      hide_small_nav: () => dispatch({ type: 'CLOSE_NAV' })
+   }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
